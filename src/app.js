@@ -7,24 +7,19 @@ const geocode = require('./utils/geocode')
 const app = express()
 const port = process.env.PORT || 3000
 
-// Define paths for Express config
+// Define path for Express config
 const publicDirectoryPath = path.join(__dirname, '../public')
-const viewsPath = path.join(__dirname, '../templates/views') //We have changed the name of VIEWS folder into template so we have to write this to avoid failings
+const viewsPath = path.join(__dirname, '../templates/views') 
 const partialsPath = path.join(__dirname, '../templates/partials')
 
-
-// Setup handebars engine and (below) views location
+// Setup handlebars engine and views location
 app.set('view engine', 'hbs')
-app.set('views', viewsPath) //this point the once-called View folder
+app.set('views', viewsPath) 
 hbs.registerPartials(partialsPath)
-
 
 // Setup static directory to serve
 app.use(express.static(publicDirectoryPath))
 
-// with .render we can render one the handlebars in Views, the files in .hbs
-// 1st parameter is the page (view) we want to render (es.index, without .hbs), the second is an object
-// with all the values we want that view to access.
 app.get('', (req, res) => {
     res.render('index', {
         title: 'Weather App',
@@ -72,7 +67,6 @@ app.get('/weather', (req, res) => {
     })
 })
 
-
 app.get('/products', (req, res) => {
     if(!req.query.search) {
         return res.send({
@@ -84,7 +78,6 @@ app.get('/products', (req, res) => {
     })
 })
 
-// This is when we want a 404 page after a specific route, like help
 app.get('/help/*', (req, res) => {
     res.render('404', {
         title: '404',
@@ -101,6 +94,6 @@ app.get('*', (req,res) => {
     })
 })
 
-app.listen(PORT, () => {
+app.listen(port, () => {
     console.log('Server is up on port' + port)
 })
