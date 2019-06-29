@@ -1,0 +1,54 @@
+body {
+    color: #333;
+    font-family: arial;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+.main-content {
+    flex-grow: 1;
+}
+
+footer {
+    padding: .2rem 0;
+    color: #888;
+    border-top: 1px solid #eee;
+}
+
+header {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+
+h1 {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+}
+
+header a {
+    color: #888;
+    margin-right: 1rem;
+    text-decoration: none;
+}
+
+.profilePic {
+    height: 250px;
+    border: 3px solid grey;
+}
+
+input {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+button {
+    cursor: pointer;
+    border: 1px solid #888;
+    background: #888;
+    color: #fff;
+    padding: 8px;
+}
