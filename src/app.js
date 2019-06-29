@@ -4,12 +4,8 @@ const hbs = require('hbs')
 const forecast = require('./utils/forecast')
 const geocode = require('./utils/geocode')
 
-//we need to write the path to reach the PUBLIC folder. If we only enter 
-// __dirname as a single parameter, we'll have the folder which contains the app.js file 
-// aka the src folder
-// console.log(path.join(__dirname, '../public'))
-
 const app = express()
+const port = process.env.PORT || 3000
 
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -92,7 +88,7 @@ app.get('/products', (req, res) => {
 app.get('/help/*', (req, res) => {
     res.render('404', {
         title: '404',
-        name: 'Morwen Dohriel',
+        name: 'Valeria Ragonese',
         errorMessage: 'Help article not found'
     })
 })
@@ -100,11 +96,11 @@ app.get('/help/*', (req, res) => {
 app.get('*', (req,res) => {
     res.render('404', {
         title: '404',
-        name: 'Morwen Dohriel',
+        name: 'Valeria Ragonese',
         errorMessage: 'Page not found'
     })
 })
 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000')
+app.listen(PORT, () => {
+    console.log('Server is up on port' + port)
 })
